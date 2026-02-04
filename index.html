@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中華鐵鍋開鍋完整指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.8;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .specs {
+            background: #ecf0f1;
+            padding: 20px 30px;
+            border-bottom: 3px solid #3498db;
+        }
+        
+        .specs-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .spec-item strong {
+            color: #2c3e50;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .phase {
+            margin-bottom: 50px;
+            border-left: 4px solid #3498db;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .phase::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: #3498db;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #3498db;
+        }
+        
+        .phase-title {
+            font-size: 1.6em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .phase-number {
+            background: #3498db;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7em;
+            font-weight: bold;
+        }
+        
+        .step {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            border-left: 3px solid #95a5a6;
+            transition: all 0.3s ease;
+        }
+        
+        .step:hover {
+            transform: translateX(5px);
+            border-left-color: #3498db;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+        }
+        
+        .step-header {
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .step-content {
+            color: #555;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .warning-title {
+            font-weight: 700;
+            color: #856404;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .warning-content {
+            color: #856404;
+            font-size: 0.95em;
+        }
+        
+        .tip {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .tip-title {
+            font-weight: 700;
+            color: #0c5460;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tip-content {
+            color: #0c5460;
+            font-size: 0.95em;
+        }
+        
+        .materials {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        
+        .materials h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .materials ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        
+        .materials li::before {
+            content: "✓ ";
+            color: #4caf50;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+        }
+        
+        footer p {
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .phase-title {
+                font-size: 1.3em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍳 中華鐵鍋開鍋完整指南</h1>
+            <p>1.2mm 鋼板鐵鍋專業養護流程</p>
+        </header>
+        
+        <div class="specs">
+            <div class="specs-content">
+                <div class="spec-item">
+                    <strong>鍋具材質:</strong> 1.2mm 鋼板
+                </div>
+                <div class="spec-item">
+                    <strong>鍋具類型:</strong> 中華鐵鍋
+                </div>
+                <div class="spec-item">
+                    <strong>預計時間:</strong> 2-3 小時
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="materials">
+                <h3>📋 所需材料與工具</h3>
+                <ul>
+                    <li>吹風機</li>
+                    <li>廚房魔術靈(去油清潔劑)</li>
+                    <li>洗碗精</li>
+                    <li>黑色除焦垢菜瓜布</li>
+                    <li>清潔手套</li>
+                    <li>廚房紙巾(多準備)</li>
+                    <li>料理用油(建議豬油、亞麻仁油或葡萄籽油)</li>
+                    <li>瓦斯爐或電爐</li>
+                </ul>
+            </div>
+            
+            <!-- 第一階段 -->
+            <div class="phase">
+                <h2 class="phase-title">
+                    <span class="phase-number">1</span>
+                    清除標籤與防鏽油
+                </h2>
+                
+                <div class="step">
+                    <div class="step-header">步驟 1-1:移除廠牌標籤</div>
+                    <div class="step-content">
+                        使用吹風機對準標籤位置,持續溫熱加熱約 1-2 分鐘,直到感覺到黏膠軟化。小心撕除標籤,確保殘膠一併移除。若有殘膠,可再加熱後用紙巾沾少許油擦拭。
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-header">步驟 1-2:初步去油清潔</div>
+                    <div class="step-content">
+                        在鍋面內外均勻噴灑廚房魔術靈,確保完全覆蓋所有表面。靜置 10 分鐘,讓清潔劑充分分解防鏽油。
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-header">步驟 1-3:刷洗與沖洗</div>
+                    <div class="step-content">
+                        戴上清潔手套,使用黑色除焦垢菜瓜布進行全面刷洗,包括鍋面、鍋底、鍋緣和把手。刷洗時需用力但避免過度用力刮傷鍋面。用清水徹底沖洗乾淨。
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-header">步驟 1-4:洗碗精深度清潔</div>
+                    <div class="step-content">
+                        擠適量洗碗精,再次用菜瓜布徹底刷洗鍋子內外所有表面,確保防鏽油完全移除。用清水沖洗至完全無泡沫。
+                    </div>
+                </div>
+                
+                <div class="tip">
+                    <div class="tip-title">💡 小提醒</div>
+                    <div class="tip-content">
+                        這個階段的目的是移除工廠防鏽油,第一次清潔務必要徹底,否則會影響後續養護效果。
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 第二階段 -->
+            <div class="phase">
+                <h2 class="phase-title">
+                    <span class="phase-number">2</span>
+                    第一次燒藍處理
+                </h2>
+                
+                <div class="step">
+                    <div class="step-header">步驟 2-1:快速擦乾</div>
+                    <div class="step-content">
+                        用廚房紙巾快速擦拭鍋面,移除明顯水滴即可,不需要完全擦乾。
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-header">步驟 2-2:大火加熱燒藍</div>
+                    <div class="step-content">
+                        開大火加熱鍋子,讓鍋子均勻受熱。此時可能會看到:<br>
+                        • 殘留水分蒸發冒出白煙<br>
+                        • 殘餘油脂碳化冒出煙霧<br>
+                        • 鍋面開始出現藍色、紫色、金黃色等氧化色澤<br>
+                        持續加熱,直到完全沒有任何煙霧冒出,且鍋面呈現均勻的氧化色澤。
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-header">步驟 2-3:冷卻</div>
+                    <div class="step-content">
+                        關火後靜置 10 分鐘,讓鍋子自然冷卻。不要用水沖洗或強制冷卻,避免鍋子變形。
+                    </div>
+                </div>
+                
+                <div class="warning">
+                    <div class="warning-title">⚠️ 安全注意</div>
+                    <div class="warning-content">
+                        燒藍過程會產生大量煙霧,務必保持廚房通風良好。開啟抽油煙機,並打開窗戶。煙霧可能帶有刺激性,建議戴口罩操作。
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 第三階段 -->
+            <div class="phase">
+                <h2 class="phase-title">
+                    <span class="phase-number">3</span>
+                    二次清潔
+                </h2>
+                
+                <div class="step">
+                    <div class="step-header">步驟 3-1:清除碳化物</div>
+                    <div class="step-content">
+                        用洗碗精和菜瓜布再次徹底刷洗鍋子,移除加熱後碳化的殘餘物質和可能產生的少許鏽痕。用清水沖洗乾淨。
+                    </div>
+                </div>
+                
+                <div class="tip">
+                    <div class="tip-title">💡 小提醒</div>
+                    <div class="tip-content">
+                        如果發現有輕微鏽點,這是正常現象,用菜瓜布刷洗即可移除。這是鐵鍋特性,不影響使用。
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 第四階段 -->
+            <div class="phase">
+                <h2 class="phase-title">
+                    <span class="phase-number">4</span>
+                    第二次燒藍強化
+                </h2>
+                
+                <div class="step">
+                    <div class="step-header">步驟 4-1:快速擦乾</div>
+                    <div class="step-content">
+                        用廚房紙巾快速擦拭鍋面,移除明顯水滴。
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-header">步驟 4-2:補強燒藍</div>
+                    <div class="step-content">
+                        再次開大火加熱,目的是強化氧化層,讓整個鍋面呈現均勻的藍灰色。這次加熱時間會比第一次短,因為已經沒有太多殘留物質。持續加熱直到鍋面顏色均勻一致。
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-header">步驟 4-3:短暫冷卻</div>
+                    <div class="step-content">
+                        關火後靜置 5 分鐘冷卻,讓鍋子降溫至可以徒手觸摸的溫度(約 50-60°C,感覺溫熱但不燙手)。
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 第五階段 -->
+            <div class="phase">
+                <h2 class="phase-title">
+                    <span class="phase-number">5</span>
+                    油膜養護(第一輪)
+                </h2>
+                
+                <div class="step">
+                    <div class="step-header">步驟 5-1:上油</div>
+                    <div class="step-content">
+                        用廚房紙巾沾取少量料理用油(約 1-2 茶匙),徹底擦拭鍋子內外所有表面,包括鍋底和把手。確保油層薄而均勻。
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-header">步驟 5-2:擦除多餘油脂</div>
+                    <div class="step-content">
+                        用乾淨的廚房紙巾再次徹底擦拭鍋面,移除多餘油脂。目標是看起來幾乎沒有油光,但實際上所有表面都被薄薄一層油覆蓋。
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-header">步驟 5-3:加熱聚合</div>
+                    <div class="step-content">
+                        開中火加熱鍋子,當油開始冒煙時(約 200-230°C),保持這個溫度。你會看到:<br>
+                        • 開始冒出淡淡白煙<br>
+                        • 鍋面可能出現輕微變色<br>
+                        持續加熱,維持在發煙點溫度,直到完全不再冒煙(約 3-5 分鐘)。這代表油膜已經聚合在鍋面上。
+                    </div>
+                </div>
+                
+                <div class="tip">
+                    <div class="tip-title">💡 用油建議</div>
+                    <div class="tip-content">
+                        推薦使用:<br>
+                        • 豬油:傳統方法,效果最好,但有氣味<br>
+                        • 亞麻仁油:聚合效果佳,較無異味<br>
+                        • 葡萄籽油:發煙點適中,容易操作<br>
+                        避免使用橄欖油(發煙點太低)和奶油(含水分)
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 第六階段 -->
+            <div class="phase">
+                <h2 class="phase-title">
+                    <span class="phase-number">6</span>
+                    油膜養護(第二輪)
+                </h2>
+                
+                <div class="step">
+                    <div class="step-header">步驟 6-1:重複上油流程</div>
+                    <div class="step-content">
+                        關火後,趁鍋子還有餘溫,用剛才的紙巾再沾一點油,塗抹內外表面。再用乾淨紙巾擦除多餘油脂。
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-header">步驟 6-2:再次加熱聚合</div>
+                    <div class="step-content">
+                        重新開中火加熱至發煙點,維持溫度直到不再冒煙。這一輪通常會比第一輪快。
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-header">步驟 6-3:檢查與判斷</div>
+                    <div class="step-content">
+                        觀察鍋面狀態:<br>
+                        • <strong>顏色均勻:</strong>鍋面呈現均勻的深色或藍黑色<br>
+                        • <strong>光澤自然:</strong>有淡淡的光澤,不是油亮反光<br>
+                        • <strong>觸感滑順:</strong>用手指輕觸感覺滑順(需冷卻後測試)<br>
+                        <br>
+                        如果符合以上條件,開鍋完成!如果覺得鍋面內側還需要加強,可以針對內側再進行一次油膜聚合流程。
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 完成與保養 -->
+            <div class="phase">
+                <h2 class="phase-title">
+                    <span class="phase-number">✓</span>
+                    開鍋完成與日常保養
+                </h2>
+                
+                <div class="step">
+                    <div class="step-header">開鍋完成標誌</div>
+                    <div class="step-content">
+                        • 鍋面呈現均勻的深色調(藍黑色、深灰色或古銅色)<br>
+                        • 表面有自然光澤但不油膩<br>
+                        • 觸感滑順,手指劃過有絲滑感<br>
+                        • 聞起來沒有油耗味或金屬味
+                    </div>
+                </div>
+                
+                <div class="warning">
+                    <div class="warning-title">⚠️ 首次使用建議</div>
+                    <div class="warning-content">
+                        開鍋後前 3-5 次使用,建議:<br>
+                        • 多用油烹調(如炒蛋、炒青菜)<br>
+                        • 避免煮湯或水煮<br>
+                        • 避免烹調酸性食物(如番茄、醋)<br>
+                        • 每次使用後上薄薄一層油保養
+                    </div>
+                </div>
+                
+                <div class="tip">
+                    <div class="tip-title">💡 日常保養要點</div>
+                    <div class="tip-content">
+                        <strong>清洗:</strong>趁熱用熱水沖洗,軟刷或菜瓜布刷洗即可。一般不需使用清潔劑(除非油垢嚴重)。<br>
+                        <strong>乾燥:</strong>清洗後務必立即擦乾或加熱烘乾,避免生鏽。<br>
+                        <strong>上油:</strong>每次使用後,趁鍋子還有餘溫,用紙巾沾少許油擦拭鍋面。<br>
+                        <strong>存放:</strong>保持乾燥,可在鍋內墊廚房紙巾吸濕。
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p><strong>恭喜完成開鍋!</strong></p>
+            <p>隨著使用次數增加,你的鐵鍋會越來越好用,養出專屬於你的完美油膜</p>
+            <p style="margin-top: 15px; font-size: 0.9em;">🍳 享受烹飪的樂趣吧!</p>
+        </footer>
+    </div>
+</body>
+</html>
