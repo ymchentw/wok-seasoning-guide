@@ -4,7 +4,7 @@
 
 ## 🔗 線上閱讀
 
-👉 [點擊這裡查看完整指南](https://你的用戶名.github.io/wok-seasoning-guide/)
+👉 [點擊這裡查看完整指南](https://ymchentw.github.io/wok-seasoning-guide/)
 
 ## 📖 內容包含
 
